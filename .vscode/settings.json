@@ -1,0 +1,33 @@
+{
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.prettier": true
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#2d1449",
+    "activityBar.activeBackground": "#2d1449",
+    "activityBar.foreground": "#ffffff",
+    "activityBar.inactiveForeground": "#fae4f6",
+    "activityBar.activeBorder": "#ffffff",
+    "activityBarBadge.background": "#fae4f6",
+    "activityBarBadge.foreground": "#2d1449",
+    "titleBar.activeBackground": "#2d1449",
+    "titleBar.inactiveBackground": "#2d1449",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveForeground": "#e7e7e799",
+    "statusBar.background": "#2d1449",
+    "statusBarItem.hoverBackground": "#626262",
+    "statusBar.foreground": "#ffffff",
+  },
+  "cSpell.words": [
+    "datasource",
+    "googleauth",
+    "keyfile",
+    "logtask",
+    "logwork",
+    "logworks",
+    "protobuf",
+    "worklog"
+  ],
+}
