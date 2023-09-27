@@ -2,20 +2,21 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, SelectQueryBuilder } from 'typeorm';
-import { GoogleEvent } from './event.entity';
+
 import {
   AbstractRepository,
   TPaginationOptions,
   TPaginationResult,
-  common,
   queryByKeywordAndPagination,
+  common,
 } from '@ld3v/nqh-shared';
 import * as moment from 'moment';
 import {
   IGoogleEventRepository,
   TCreateGoogleEvent,
   TSearchEventsOptions,
-} from './event.interface';
+} from '../interfaces';
+import { GoogleEvent } from '../entities';
 
 @Injectable()
 export class GoogleEventRepository

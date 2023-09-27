@@ -4,7 +4,7 @@ import {
   TPaginationResult,
   TSearchOptions,
 } from '@ld3v/nqh-shared';
-import { GoogleEvent } from 'src/event/event.entity';
+import { GoogleEvent } from '../entities';
 
 export type TSearchEventsOptions = TSearchOptions & { isTodayOnly?: boolean };
 export type TCreateGoogleEvent = {

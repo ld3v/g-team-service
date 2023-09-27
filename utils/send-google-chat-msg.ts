@@ -9,8 +9,7 @@ export const sendGChatMessage = async (
     const res = await axios.post(url, content);
     return res.data;
   } catch (error: any) {
-    Logger.error(
-      'Something went wrong when send G-Chat message: ' + error.message,
-    );
+    Logger.error('Something went wrong when send G-Chat message:');
+    console.error(error);
   }
 };

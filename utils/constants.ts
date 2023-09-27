@@ -21,5 +21,3 @@ export const APM_MEMBERS: Record<string, string> = {
 };
 
 export const DS_NAME_START_WITH = 'apm: daily scrum';
-export const CACHE_HOSTED_HISTORY = 'DAILY_MEETING_HOSTED';
-export const CACHE_HOSTED_TTL = 7 * 24 * 60 * 60 * 1000; // 7 days

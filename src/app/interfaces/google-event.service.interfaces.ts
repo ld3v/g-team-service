@@ -1,6 +1,6 @@
 import { GoogleEventService } from '@ld3v/nqh-shared/dist/gRPC/generate';
 import { GoogleEvent } from '../entities/google-event.entity';
-import { TCreateGoogleEvent } from '../interfaces/google-event.interface';
+import { TCreateGoogleEvent } from './google-event.interface';
 
 export const I_APP_SERVICE = 'I-APP-SERVICE';
 export interface IAppService {

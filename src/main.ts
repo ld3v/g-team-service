@@ -3,6 +3,7 @@ import { AppModule } from './app/app.module';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { join } from 'path';
 import { gRPC } from '@ld3v/nqh-shared';
+import { ValidationPipe } from '@nestjs/common';
 
 async function bootstrap() {
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
@@ -12,15 +13,26 @@ async function bootstrap() {
       options: {
         url: 'localhost:4050',
         package: gRPC.GoogleEventService.protobufPackage,
-        protoPath: [
-          join(
-            process.cwd(),
-            'node_modules/@ld3v/nqh-shared',
-            'src/gRPC/proto/v1/google-event.service.proto',
-          ),
-        ],
+        protoPath: ['google-event.service.proto'],
+        loader: {
+          includeDirs: [
+            join(
+              __dirname,
+              '../..',
+              'node_modules/@ld3v/nqh-shared/dist/gRPC/proto/v1',
+            ),
+          ],
+        },
       },
     },
+  );
+
+  app.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      whitelist: true,
+      transformOptions: { exposeDefaultValues: true },
+    }),
   );
 
   await app.listen();

@@ -9,10 +9,12 @@ export const sendDailyMeetingNotify = async (
     newHostedLink,
     meetingLink,
     eventLink,
+    noteMessage = '',
   }: {
-    meetingLink: string;
-    eventLink: string;
+    meetingLink?: string;
+    eventLink?: string;
     newHostedLink: string;
+    noteMessage?: string;
   },
 ) => {
   const startTime = moment(startedAt);
@@ -38,6 +40,16 @@ export const sendDailyMeetingNotify = async (
                 {
                   divider: {},
                 },
+                ...(noteMessage
+                  ? [
+                      {
+                        textParagraph: {
+                          text: noteMessage,
+                        },
+                      },
+                      { divider: {} },
+                    ]
+                  : []),
                 {
                   textParagraph: {
                     text:

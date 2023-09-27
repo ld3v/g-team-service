@@ -1,5 +1,6 @@
-import { Entity, Column, BeforeInsert } from 'typeorm';
+import { Entity, Column, BeforeInsert, OneToMany } from 'typeorm';
 import { common, AbstractEntity } from '@ld3v/nqh-shared';
+import { HistoryEvent } from './history-event.entity';
 
 @Entity({ name: 'google_event' })
 export class GoogleEvent extends AbstractEntity<GoogleEvent> {
@@ -37,6 +38,9 @@ export class GoogleEvent extends AbstractEntity<GoogleEvent> {
     default: '[]',
   })
   members: string;
+
+  @OneToMany(() => HistoryEvent, (e) => e.event)
+  historyEvents: HistoryEvent[];
 
   // Actions
   @BeforeInsert()

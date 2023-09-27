@@ -1,11 +1,11 @@
 import { Injectable, Inject } from '@nestjs/common';
-import { IAppService } from './interfaces';
 import {
+  IAppService,
   IGoogleEventRepository,
   I_GOOGLE_EVENT_REPOSITORY,
   TCreateGoogleEvent,
-} from '../interfaces/google-event.interface';
-import { GoogleEvent } from '../entities/google-event.entity';
+} from '../interfaces';
+import { GoogleEvent } from '../entities';
 import {
   GoogleEventService,
   GoogleEventType,
@@ -40,7 +40,7 @@ export class AppService implements IAppService {
   ): TCreateGoogleEvent[] {
     return events.map((e) => ({
       ...e,
-      attendees: e.attendees.map((eA) => ({
+      attendees: (e.attendees || []).map((eA) => ({
         ...eA,
         status:
           eA.status === GoogleEventType.GoogleEventAttendee_Status.UNRECOGNIZED
