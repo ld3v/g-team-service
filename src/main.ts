@@ -12,7 +12,7 @@ async function bootstrap() {
       transport: Transport.GRPC,
       options: {
         url: 'localhost:4050',
-        package: gRPC.GoogleEventService.protobufPackage,
+        package: gRPC.GoogleEvent.protobufPackage,
         protoPath: ['google-event.service.proto'],
         loader: {
           includeDirs: [

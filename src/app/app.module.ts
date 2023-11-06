@@ -29,6 +29,7 @@ const { env } = common;
         DB_PASSWORD: Joi.string().required(),
         DB_DATABASE: Joi.string().required(),
         GG_CHAT_WEBHOOK: Joi.string().required(),
+        GG_CHAT_WEBHOOK_DEV: Joi.string().required(),
       }),
       envFilePath: '.env',
     }),

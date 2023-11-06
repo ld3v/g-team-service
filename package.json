@@ -22,7 +22,7 @@
   "dependencies": {
     "@grpc/grpc-js": "^1.9.3",
     "@grpc/proto-loader": "^0.7.10",
-    "@ld3v/nqh-shared": "^0.8.8-dev.0",
+    "@ld3v/nqh-shared": "^0.8.11-dev.0",
     "@nestjs/cache-manager": "^2.1.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.1.1",

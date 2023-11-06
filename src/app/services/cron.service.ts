@@ -47,7 +47,7 @@ export class CronService {
         ? memberEmails.map((m) => m.replace('.tpv@one-line.com', ''))
         : undefined;
       // Filter from cache
-      const membersHostedBefore = await this.getMembersExclude();
+      const membersHostedBefore = await this.appService.getMembersExclude();
       Logger.log(
         'Member hosted before: ' + JSON.stringify(membersHostedBefore),
       );
@@ -125,14 +125,6 @@ export class CronService {
           error.message,
       );
     }
-  }
-
-  private async getMembersExclude(): Promise<string[]> {
-    const lastHistoryEvent = await this.historyEventRepository.getLast();
-    if (!lastHistoryEvent) return [];
-    const data = JSON.parse(lastHistoryEvent.memberExclude);
-
-    return Array.isArray(data) ? data : [];
   }
 
   async addHistoryEvent(
