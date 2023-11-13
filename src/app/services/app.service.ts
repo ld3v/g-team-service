@@ -77,7 +77,7 @@ export class AppService implements IAppService {
       const hook = isTestOnly
         ? this.configService.get<string>('GG_CHAT_WEBHOOK_DEV')
         : this.configService.get<string>('GG_CHAT_WEBHOOK');
-      const res = await sendDailyMeetingNotify(hook, memberHosted, new Date(), {
+      const res = await sendDailyMeetingNotify(hook, memberHosted, null, {
         noteMessage: noteMsg,
         newHostedLink: `https://team.nqhuy.dev/p/tools/random/${membersEncoded}`,
       });

@@ -4,7 +4,7 @@ import * as moment from 'moment';
 export const sendDailyMeetingNotify = async (
   gChatWebhook: string,
   { id, alias }: { id: string; alias: string },
-  startedAt: Date,
+  startedAt: Date | null,
   {
     newHostedLink,
     meetingLink,
@@ -17,7 +17,7 @@ export const sendDailyMeetingNotify = async (
     noteMessage?: string;
   },
 ) => {
-  const startTime = moment(startedAt);
+  const startTime = startedAt ? moment(startedAt) : null;
 
   return await sendGChatMessage(gChatWebhook, {
     text: `Hi <users/${id}>!`,
@@ -50,18 +50,22 @@ export const sendDailyMeetingNotify = async (
                       { divider: {} },
                     ]
                   : []),
-                {
-                  textParagraph: {
-                    text:
-                      '<i>And remember that we have the Daily Meeting at ' +
-                      `${startTime.format('HH:mm')} ` +
-                      `(${startTime.fromNow()})</i><br/>` +
-                      'If he off today, click the <b>Get a new hosted</b> to get a new random member to host this meeting!',
-                  },
-                },
-                {
-                  divider: {},
-                },
+                ...(startTime
+                  ? [
+                      {
+                        textParagraph: {
+                          text:
+                            '<i>And remember that we have the Daily Meeting at ' +
+                            `${startTime.format('HH:mm')} ` +
+                            `(${startTime.fromNow()})</i><br/>` +
+                            'If he/she off today, click the <b>Get a new hosted</b> to get a new random member to host this meeting!',
+                        },
+                      },
+                      {
+                        divider: {},
+                      },
+                    ]
+                  : []),
                 {
                   buttonList: {
                     buttons: [
