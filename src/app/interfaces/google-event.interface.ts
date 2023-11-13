@@ -17,7 +17,7 @@ export type TCreateGoogleEvent = {
   startedAt: string; // ISO8601
   finishedAt: string; // ISO8601
   attendees: {
-    email: string;
+    username: string;
     status: 'needs_actions' | 'accepted' | 'declined';
   }[];
   isPrivate: boolean;

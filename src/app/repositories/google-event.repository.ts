@@ -83,7 +83,6 @@ export class GoogleEventRepository
         id,
         recurringId,
         summary,
-        description,
         meetingLink,
         eventLink,
         startedAt,
@@ -94,12 +93,11 @@ export class GoogleEventRepository
           eventId: id,
           eventRecurringId: recurringId,
           summary,
-          description,
           meetingLink,
           eventLink,
           startedAt: new Date(startedAt).toISOString(),
           finishedAt: new Date(finishedAt).toISOString(),
-          members: JSON.stringify(attendees.map((a) => a.email)),
+          members: JSON.stringify(attendees.map((a) => a.username)),
         }),
     );
 
